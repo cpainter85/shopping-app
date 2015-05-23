@@ -20,8 +20,8 @@ feature "movie management" do
 
 		click_on "Sign In"
 
-		fill_in :username, with: "Bob Dillon"
-		fill_in :password, with: "heyheyhey"
+		fill_in "Username", with: "Bob Dillon"
+		fill_in "Password", with: "heyheyhey"
 
 		click_on "Sign In"
 		expect(page).to have_content "Thanks for signing in!"
@@ -41,7 +41,7 @@ feature "movie management" do
 		expect(current_path).to eq(new_movie_ticket_path(movie))
 
 		select "9:10PM", from: "Show Times"
-		fill_in :quantity, with: "1"
+		fill_in "Quantity", with: "1"
 
 		click_on "Purchase"
 		expect(current_path).to eq(movie_ticket_path(movie, Ticket.last))
@@ -61,10 +61,10 @@ feature "movie management" do
 		expect(current_path).to eq(new_movie_ticket_path(movie2))
 
 		select "12:10PM", from: "Show Times"
-		fill_in :quantity, with: "2"
+		fill_in "Quantity", with: "2"
 
 		click_on "Purchase"
-		expect(current_path).to eq(movie_ticket_path(movie, Ticket.last))
+		expect(current_path).to eq(movie_ticket_path(movie2, Ticket.last))
 		expect(page).to have_content("2 Tickets for The Last of the Mohicans at 9:10PM")
 
 		visit root_path
