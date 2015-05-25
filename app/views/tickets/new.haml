@@ -1,0 +1,6 @@
+=form_for [@movie, @ticket] do |f|
+  =f.label :show_time_id, 'Show Times'
+  =f.collection_select :show_time_id, @movie.show_times, :id, :formatted_time
+  =f.label :quantity
+  =f.number_field :quantity
+  =f.submit 'Purchase'

@@ -1,0 +1,6 @@
+=link_to 'Buy Ticket', new_movie_ticket_path(@movie)
+=@movie.name
+%p
+  Today's Show Times:
+  -@movie.show_times.each do |show_time|
+    =show_time.formatted_time

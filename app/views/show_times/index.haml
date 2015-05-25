@@ -1,0 +1,6 @@
+-@movies.each do |movie|
+  %p
+    =link_to "#{movie.name}:", movie_path(movie)
+    Showing
+    -movie.show_times.each do |show_time|
+      =show_time.formatted_time

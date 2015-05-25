@@ -1,0 +1,7 @@
+%p
+  You have seen:
+  -current_user.tickets.each_with_index do |ticket, index|
+    -if index == current_user.tickets.length-1
+      ="#{ticket.movie.name}"
+    -else
+      ="#{ticket.movie.name},"

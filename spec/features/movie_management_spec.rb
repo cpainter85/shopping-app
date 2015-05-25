@@ -65,7 +65,7 @@ feature "movie management" do
 
 		click_on "Purchase"
 		expect(current_path).to eq(movie_ticket_path(movie2, Ticket.last))
-		expect(page).to have_content("2 Tickets for The Last of the Mohicans at 9:10PM")
+		expect(page).to have_content("2 Tickets for The Last of the Mohicans at 12:10PM")
 
 		visit root_path
 		click_on "My Movies"

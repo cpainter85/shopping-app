@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
+
+  get 'sign-in', to: 'authentication#new'
+  post 'sign-in', to: 'authentication#create'
+  get 'sign-out', to: 'authentication#destroy'
+  get 'sign-up', to: 'registrations#new', as: 'new_user'
+  post 'sign-up', to: 'registrations#create'
+
+  resources :show_times, only: [:index]
+  resources :movies, only: [:show] do
+    resources :tickets, only: [:new, :create, :show]
+  end
+  resources :users, only: [:show]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
